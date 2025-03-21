@@ -11,12 +11,36 @@ enum custom_layer {
     _FN3
 };
 
+// Custome keycodes
+// Layer modifiers
 #define MO_FN1 MO(_FN1)
 #define MO_FN2 MO(_FN2)
 #define MO_FN3 MO(_FN3)
 
+// Keyboard Layouts
 #define DF_COLEMAK DF(_COLEMAK)
 #define DF_QWERTY DF(_QWERTY)
+
+// Home Row Mods
+// COLEMAK
+#define LALT_KA LALT_T(KC_A)
+#define LCTL_KR LCTL_T(KC_R)
+#define LGUI_KS LGUI_T(KC_S)
+#define LSFT_KT LSFT_T(KC_T)
+#define RALT_KO RALT_T(KC_O)
+#define RCTL_KI RCTL_T(KC_I)
+#define RGUI_KE RGUI_T(KC_E)
+#define RSFT_KN RSFT_T(KC_N)
+
+// QWERTY
+// #define LALT_KA LALT_T(KC_A) // already defined in COLEMAK
+#define LCTL_KS LCTL_T(KC_S)
+#define LGUI_KD LGUI_T(KC_D)
+#define LSFT_KF LSFT_T(KC_F)
+#define RA_SCLN RALT_T(KC_SCLN)
+#define RCTL_KL RCTL_T(KC_L)
+#define RGUI_KK RGUI_T(KC_K)
+#define RSFT_KJ RSFT_T(KC_J)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -26,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                               KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                               KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,
+     KC_LCTL, LALT_KA, LCTL_KR, LGUI_KS, LSFT_KT, KC_G,                               KC_M,    RSFT_KN, RGUI_KE, RCTL_KI, RALT_KO, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_HOME,          KC_END,  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
@@ -40,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                               KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                               KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+     KC_LCTL, LALT_KA, LCTL_KS, LGUI_KD, LSFT_KF, KC_G,                               KC_H,    RSFT_KJ, RGUI_KK, RCTL_KL, RA_SCLN, KC_QUOT,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_HOME,          KC_END,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
