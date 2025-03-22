@@ -8,14 +8,14 @@ enum custom_layer {
     _QWERTY,
     _FN1,
     _FN2,
-    _FN3
+    _NAV
 };
 
 // Custome keycodes
 // Layer modifiers
 #define MO_FN1 MO(_FN1)
 #define MO_FN2 MO(_FN2)
-#define MO_FN3 MO(_FN3)
+#define MO_NAV MO(_NAV)
 
 // Keyboard Layouts
 #define DF_COLEMAK DF(_COLEMAK)
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      RGB_MOD, _______, _______, _______, _______, KC_LCBR, KC_LPRN,          KC_RPRN, KC_RCBR, KC_P1,   KC_P2,   KC_P3,   KC_MINS, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, KC_DEL,                    KC_DEL,  MO_FN3,  KC_P0
+                                    _______, _______, KC_DEL,                    KC_DEL,  MO_NAV,  KC_P0
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
@@ -96,21 +96,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_MUTE, KC_MSTP, KC_MPLY, KC_VOLD, KC_PGDN, KC_MINS, DF_COLEMAK,     DF_QWERTY, KC_PLUS, KC_END,  RGB_HUD, RGB_SAD, RGB_VAD, _______,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, MO_FN3,  _______,                   _______, _______, _______
+                                    _______, MO_NAV,  _______,                   _______, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   ),
 
-  [_FN3] = LAYOUT(
+  [_NAV] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                          ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     _______, _______, KC_PGDN, KC_UP,   KC_PGUP, _______,                            _______, MS_WHLD, MS_UP,   MS_WHLU, _______, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                          ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+     _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,                             MS_WHLL, MS_LEFT, MS_DOWN, MS_RGHT, MS_WHLR, _______,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐        ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      EE_CLR,  _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, EE_CLR,
   //└────────┴────────┴────────┴───┬────┴───┬────┴───┬────┴───┬────┘        └───┬────┴───┬────┴───┬────┴───┬────┴────────┴────────┴────────┘
-                                    _______, _______, _______,                   _______, _______, _______
+                                    _______, _______, MS_BTN1,                   MS_BTN2, _______, _______
                                 // └────────┴────────┴────────┘                 └────────┴────────┴────────┘
   )
 };
@@ -121,7 +121,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_QWERTY] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGDN, KC_PGUP) },
     [_FN1] = { ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_HOME, KC_END), ENCODER_CCW_CW(KC_MPRV, KC_MNXT), ENCODER_CCW_CW(KC_HOME, KC_END) },
     [_FN2] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD), ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(RGB_SAD, RGB_SAI), ENCODER_CCW_CW(RGB_VAD, RGB_VAI) },
-    [_FN3] = { ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
+    [_NAV] = { ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO), ENCODER_CCW_CW(KC_NO, KC_NO) },
 };
 #endif
 
